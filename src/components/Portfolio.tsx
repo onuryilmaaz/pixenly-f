@@ -1,153 +1,119 @@
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, MousePointer2 } from 'lucide-react';
 
 const Portfolio = () => {
   const projects = [
     {
       title: "Dumanlar İnşaat",
       url: "https://dumanlarinsaatyapi.com",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Modern inşaat firması web sitesi"
     },
     {
       title: "Dumanlar Şap",
       url: "https://dumanlarsap.com",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Şap ve zemin kaplama hizmetleri"
     },
     {
       title: "Yuvam Yapı İnşaat",
       url: "https://www.yuvamyapiinsaat.com",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Kurumsal yapı ve inşaat çözümleri"
     },
     {
       title: "Zekioğulları İnşaat",
       url: "https://zekiogullariinsaat.com",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description: "Güvenilir inşaat ve tadilat hizmetleri"
     }
   ];
 
   return (
-    <section id="portfolio" className="py-32 relative">
+    <section id="portfolio" className="py-32 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="bg-shape w-64 h-64 top-32 -left-16 floating-delayed"></div>
-        <div className="bg-shape w-40 h-40 bottom-20 right-32 floating"></div>
+      <div className="absolute inset-0">
+        <div className="bg-shape w-96 h-96 top-20 -left-24 floating opacity-30"></div>
+        <div className="bg-shape w-64 h-64 bottom-32 -right-16 floating-delayed opacity-20"></div>
+        <div className="bg-shape w-48 h-48 top-1/2 right-1/4 floating opacity-10"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20 reveal">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="gradient-text">Portföy</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Yaratıcılığımızın ve uzmanlığımızın yansıdığı projelerimizi inceleyin
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-accent/30 via-accent to-accent/30"></div>
-          
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className={`reveal relative flex items-center mb-16 ${
-                index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-              }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="reveal group cursor-pointer"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {/* Timeline Dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-background z-10 shadow-lg shadow-accent/50"></div>
-              
-              {/* Project Card */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block"
-                >
-                  <div className="bg-card rounded-2xl overflow-hidden shadow-xl border border-border/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20 card-hover">
-                    {/* Project Image */}
-                    <div className="aspect-video overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    
-                    {/* Project Info */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
-                        {project.title}
-                      </h3>
-                      <div className="flex items-center text-accent">
-                        <span className="mr-2 text-sm">Siteyi Ziyaret Et</span>
-                        <ExternalLink className="w-4 h-4" />
-                      </div>
-                    </div>
-                    
-                    {/* Hover Border Effect */}
-                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/50 rounded-2xl transition-all duration-300"></div>
-                  </div>
-                </a>
-              </div>
-              
-              {/* Empty space for alternating layout */}
-              <div className="w-5/12"></div>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile Timeline */}
-        <div className="block md:hidden relative">
-          {/* Vertical Line */}
-          <div className="absolute left-8 w-0.5 h-full bg-gradient-to-b from-accent/30 via-accent to-accent/30"></div>
-          
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="reveal relative mb-12 pl-16"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Timeline Dot */}
-              <div className="absolute left-6 w-4 h-4 bg-accent rounded-full border-4 border-background z-10 shadow-lg shadow-accent/50"></div>
-              
-              {/* Project Card */}
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className="block"
               >
-                <div className="bg-card rounded-2xl overflow-hidden shadow-xl border border-border/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20 card-hover">
+                <div className="relative bg-card rounded-3xl overflow-hidden border border-border/20 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-accent/25 card-hover">
                   {/* Project Image */}
-                  <div className="aspect-video overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                     />
-                  </div>
-                  
-                  {/* Project Info */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center text-accent">
-                      <span className="mr-2 text-sm">Siteyi Ziyaret Et</span>
-                      <ExternalLink className="w-4 h-4" />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    
+                    {/* Hover Icon */}
+                    <div className="absolute top-6 right-6 w-12 h-12 bg-accent/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100">
+                      <ExternalLink className="w-5 h-5 text-accent" />
                     </div>
                   </div>
                   
-                  {/* Hover Border Effect */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/50 rounded-2xl transition-all duration-300"></div>
+                  {/* Project Info */}
+                  <div className="p-8">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    {/* CTA */}
+                    <div className="flex items-center text-accent font-medium">
+                      <MousePointer2 className="w-5 h-5 mr-3 transition-transform duration-300 group-hover:translate-x-1" />
+                      <span className="text-lg">Projeyi İncele</span>
+                    </div>
+                  </div>
+                  
+                  {/* Animated Border */}
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 rounded-3xl border-2 border-accent/30 animate-pulse"></div>
+                  </div>
+                  
+                  {/* Glow Effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 to-primary/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500 -z-10"></div>
                 </div>
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-20 reveal">
+          <div className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent/10 to-primary/10 rounded-full border border-accent/20">
+            <span className="text-lg text-muted-foreground mr-3">Daha fazla proje için</span>
+            <span className="text-accent font-semibold">bizimle iletişime geçin</span>
+          </div>
         </div>
       </div>
     </section>
