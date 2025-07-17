@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import SEOHead from '../components/SEOHead';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
@@ -16,26 +17,33 @@ const Index = () => {
   useScrollReveal();
 
   useEffect(() => {
-    // Force dark theme
     document.documentElement.classList.add('dark');
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <About />
-        <Why />
-        <LogoSection />
-        <Blog />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingButtons />
-    </div>
+    <>
+      <SEOHead 
+        title="Anasayfa"
+        description="Kocaeli'nin önde gelen web tasarım stüdyosu. Modern, yaratıcı ve mobil uyumlu web siteleri, logo tasarımı ve dijital çözümler."
+        keywords="web tasarım kocaeli, web sitesi yapımı, logo tasarım, ui/ux tasarım, mobil uyumlu web sitesi, kocaeli dijital ajans"
+      />
+      
+      <div className="min-h-screen bg-background text-foreground">
+        <Header />
+        <main>
+          <Hero />
+          <Services />
+          <Portfolio />
+          <About />
+          <Why />
+          <LogoSection />
+          <Blog />
+          <Contact />
+        </main>
+        <Footer />
+        <FloatingButtons />
+      </div>
+    </>
   );
 };
 

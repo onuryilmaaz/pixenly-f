@@ -36,6 +36,18 @@ const Portfolio = () => {
     }
   ];
 
+  // Akan logolar için marka listesi
+  const brands = [
+    { name: "YouTube", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/youtube/youtube-original.svg" },
+    { name: "Instagram", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/instagram/instagram-original.svg" },
+    { name: "Uber", logo: "https://logos-world.net/wp-content/uploads/2020/05/Uber-Logo.png" },
+    { name: "Spotify", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spotify/spotify-original.svg" },
+    { name: "Google", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" },
+    { name: "Microsoft", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" },
+    { name: "Amazon", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+    { name: "Netflix", logo: "https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo.png" }
+  ];
+
   return (
     <section id="portfolio" className="py-32 relative overflow-hidden">
       {/* Animated Background */}
@@ -177,6 +189,72 @@ const Portfolio = () => {
                 bizimle iletişime geçin
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Akan Logolar Bölümü */}
+      <div className="mt-24 py-16 relative overflow-hidden">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent"></div>
+        
+        {/* Üst Akan Logo Şeridi */}
+        <div className="relative mb-8">
+          <div className="flex animate-scroll-left whitespace-nowrap">
+            {/* İlk set */}
+            {brands.map((brand, index) => (
+              <div key={`top-1-${index}`} className="flex-shrink-0 mx-8 flex items-center justify-center">
+                <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center p-4 hover:bg-white/20 transition-all duration-300 group">
+                  <img 
+                    src={brand.logo} 
+                    alt={brand.name}
+                    className="w-full h-full object-contain filter brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+            {/* Tekrar eden set (seamless loop için) */}
+            {brands.map((brand, index) => (
+              <div key={`top-2-${index}`} className="flex-shrink-0 mx-8 flex items-center justify-center">
+                <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center p-4 hover:bg-white/20 transition-all duration-300 group">
+                  <img 
+                    src={brand.logo} 
+                    alt={brand.name}
+                    className="w-full h-full object-contain filter brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Alt Akan Logo Şeridi (Ters Yön) */}
+        <div className="relative">
+          <div className="flex animate-scroll-right whitespace-nowrap">
+            {/* İlk set */}
+            {brands.map((brand, index) => (
+              <div key={`bottom-1-${index}`} className="flex-shrink-0 mx-8 flex items-center justify-center">
+                <div className="w-20 h-20 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center p-3 hover:bg-white/15 transition-all duration-300 group">
+                  <img 
+                    src={brand.logo} 
+                    alt={brand.name}
+                    className="w-full h-full object-contain filter brightness-0 invert opacity-40 group-hover:opacity-80 transition-opacity duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+            {/* Tekrar eden set */}
+            {brands.map((brand, index) => (
+              <div key={`bottom-2-${index}`} className="flex-shrink-0 mx-8 flex items-center justify-center">
+                <div className="w-20 h-20 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center p-3 hover:bg-white/15 transition-all duration-300 group">
+                  <img 
+                    src={brand.logo} 
+                    alt={brand.name}
+                    className="w-full h-full object-contain filter brightness-0 invert opacity-40 group-hover:opacity-80 transition-opacity duration-300"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
